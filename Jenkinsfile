@@ -24,14 +24,6 @@ pipeline {
                 archiveArtifacts artifacts: 'build/**', fingerprint: true
             }
         }
-        stage('Notify') {
-            steps {
-                emailext (
-                    subject: "Jenkins Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    body: "Build completed.\nStatus: ${currentBuild.currentResult}\nCheck console: ${env.BUILD_URL}",
-                    to: 'aishawon.info@gmail.com'
-                )
-            }
-        }
+
     }
 }
